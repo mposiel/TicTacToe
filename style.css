@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&display=swap');
+
+
+
+body {
+  font-family: 'Hedvig Letters Sans', sans-serif;
+  margin: 0px;
+}
+
+.container {
+  border: 2px black solid;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-info {
+  width: 50rem;
+  height: 30rem;
+  border: 2px red solid;
+  display: flex;
+}
+
+.user {
+  flex: 0 1 50%;
+  display: grid;
+  grid-template-rows: 2fr 3fr 2fr;
+  gap: 5rem;
+}
+
+
+.one {
+  border: 2px green solid;
+}
+
+.two{
+  border: 2px blue solid;
+}
+
+.header, .mark-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;;
+}
+
+
+
+.name {
+  display: flex;
+  flex-direction: column;
+  padding:3rem;
+  gap:1rem;
+}
+
+.name input {
+  height:1.5rem;
+  box-shadow: 10px n1-;
+}

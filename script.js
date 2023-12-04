@@ -34,22 +34,21 @@ const infoManager = (() => {
 
 const displayController = (() => {
   const xSvgCode =
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>window-close</title><path d="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z" /></svg>';
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>cross</title><path d="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z" /></svg>';
   const oSvgCode =
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>circle-outline</title><path d="M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg>';
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>circle</title><path d="M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg>';
 
   const updateBoard = (player) => {
-    for (let i = 0; i < 9; i++) {
-      let tile = document.querySelector(`#t${i}`);
-      if (gameFlow.board[i] === "X") {
+    const tiles = document.querySelectorAll(".tile");
+    tiles.forEach((tile, index) => {
+      if (gameFlow.board.board[index] === "X") {
         tile.innerHTML = xSvgCode;
-      } else if (gameFlow.board[i] === "O") {
+      } else if (gameFlow.board.board[index] === "O") {
         tile.innerHTML = oSvgCode;
       }
-    }
+    });
 
     const turn = document.querySelector(".turn-display");
-    console.log(player);
     turn.innerHTML = `${player.getName()}'s turn!`;
     if (player.getMark() === "X") {
       turn.style.borderColor = "red";
@@ -60,10 +59,11 @@ const displayController = (() => {
 
   const showWinner = (winner) => {
     // Display a message or animation indicating the winner
+    console.log("WINNER");
   };
 
   const showTie = () => {
-    // Display a message or animation indicating a tie
+    console.log("Tie!!");
   };
 
   return {

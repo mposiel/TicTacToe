@@ -136,14 +136,18 @@ body {
 
 .tile {
   border: 2px grey solid;
-  height: 10rem;
-  width: 10rem;
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 svg {
+  border: 2px yellow solid;
+
+  top: 0;
+  left: 0;
   height: 5rem;
   width: 5rem;
 }

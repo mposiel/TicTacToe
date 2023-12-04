@@ -32,8 +32,13 @@ const displayController = (() => {
 const gameFlow = (() => {
   const board = CreateGameBoard();
 
-  const player1 = Player("Ania", "X");
-  const player2 = Player("Tomek", "O");
+  let player1;
+  let player2;
+
+  const createPlayers = (player1Name, player2Name) => {
+    player1 = Player(player1Name, "X");
+    player2 = Player(player2Name, "O");
+  };
 
   const resultCheck = () => {
     for (let i = 0; i < 3; i++) {
@@ -99,4 +104,26 @@ const gameFlow = (() => {
     resultCheck();
     displayController.updateBoard();
   };
+
+  return {
+    createPlayers,
+    resultCheck,
+    makeMove,
+  };
+})();
+
+const infoManager = (() => {
+  const playBtn = document.querySelector(".play");
+  const setupPage = document.querySelector(".setup");
+  const gamePage = document.querySelector(".game");
+  playBtn.addEventListener("click", () => {
+    const player1Name = document.querySelector("#username1").value;
+    const player2Name = document.querySelector("#username2").value;
+
+    gameFlow.createPlayers(player1Name, player2Name);
+
+    setupPage.style.visibility = "hidden";
+    gamePage.style.visibility = "visible";
+
+  });
 })();

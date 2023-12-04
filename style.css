@@ -16,11 +16,23 @@ body {
   align-items: center;
 }
 
+.setup {
+  display: flex;
+  flex-direction: column;
+  gap:2rem;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+}
+
 .user-info {
   width: 50rem;
   height: 30rem;
-  border: 2px red solid;
+  /* border: 2px red solid; */
   display: flex;
+  gap:3rem;
 }
 
 .user {
@@ -28,11 +40,11 @@ body {
   display: grid;
   grid-template-rows: 2fr 3fr 2fr;
   gap: 5rem;
+  box-shadow: 10px 10px black;
 }
 
-
 .one {
-  border: 2px green solid;
+  border: 2px red solid;
 }
 
 .two{
@@ -47,7 +59,6 @@ body {
 }
 
 
-
 .name {
   display: flex;
   flex-direction: column;
@@ -57,5 +68,85 @@ body {
 
 .name input {
   height:1.5rem;
-  box-shadow: 10px n1-;
+  box-shadow: 5px 10px black;
+}
+
+.play {
+  height: 3rem;
+  width: 7rem;
+  background-color: green;
+  color:white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  
+
+}
+
+.playBtn {
+  box-shadow: 10px 10px black;
+  height: 3rem;
+  width: 7rem;
+  border: none;
+  border-radius: 10px;
+}
+
+
+.play:hover {
+  transition: 0.1s ease-in-out;
+  background-color: rgb(3, 145, 3);
+}
+
+.play:active {
+  transform: translate(10px, 10px);
+  transition: 0.05s ease-in-out;
+  background-color: rgb(0, 82, 0);
+}
+
+.game {
+  height: 100vh;
+  width: 100vw;
+  border: 3px black solid;
+  visibility: hidden;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:2rem
+}
+
+
+.turn-display {
+  border: 3px green solid;
+  height: 5rem;
+  width: 30rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 10px 10px black;
+
+}
+
+.board {
+  border: 4px grey solid;
+  height: 30rem;
+  width: 30rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  box-shadow: 10px 10px black;
+
+}
+
+.tile {
+  border: 2px grey solid;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

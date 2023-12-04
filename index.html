@@ -9,30 +9,45 @@
   </head>
   <body>
     <div class="container">
-      <div class="user-info">
-        <div class="user one">
-            <div class="header">
-                Player 1
-              </div>
-          <div class="name">
-            <label>Username:</label>
-            <input type="text" id="username1" />
+      <div class="setup">
+        <div class="user-info">
+          <div class="user one">
+            <div class="header">Player 1</div>
+            <div class="name">
+              <label>Username:</label>
+              <input type="text" id="username1" value="Player1" />
+            </div>
+            <div class="mark-info">You are X!</div>
           </div>
-          <div class="mark-info">
-            You are X!
+          <div class="user two">
+            <div class="header">Player 2</div>
+            <div class="name">
+              <label>Username:</label>
+              <input type="text" id="username2" value="Player2" />
+            </div>
+            <div class="mark-info">You are O!</div>
           </div>
         </div>
-        <div class="user two">
-            <div class="header">
-                Player 2
-              </div>
-          <div class="name">
-            <label>Username:</label>
-            <input type="text" id="username1" />
-          </div>
-          <div class="mark-info">
-            You are O!
-          </div>
+        <div class="playBtn">
+          <button class="play">Play!</button>
+        </div>
+        
+      </div>
+      <div class="game">
+        <div class="turn-display">
+          player2's turn!
+        </div>
+        <div class="board">
+          <div class="tile" id="0">1</div>
+          <div class="tile" id="1">2</div>
+          <div class="tile" id="2">3</div>
+          <div class="tile" id="3">4</div>
+          <div class="tile" id="4">5</div>
+          <div class="tile" id="5">6</div>
+          <div class="tile" id="6">7</div>
+          <div class="tile" id="7">8</div>
+          <div class="tile" id="8">9</div>
+
         </div>
       </div>
     </div>

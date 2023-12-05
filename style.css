@@ -28,7 +28,6 @@ body {
 .user-info {
   width: 50rem;
   height: 30rem;
-  /* border: 2px red solid; */
   display: flex;
   gap: 3rem;
 }

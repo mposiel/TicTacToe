@@ -39,7 +39,6 @@ const infoManager = (() => {
     resultPage.style.visibility = "hidden";
     gamePage.style.visibility = "visible";
   });
-
 })();
 
 const displayController = (() => {
@@ -89,12 +88,12 @@ const displayController = (() => {
   const showTie = () => {
     const gamePage = document.querySelector(".game");
     const resultPage = document.querySelector(".result");
+    const resultText = document.querySelector(".result-text");
 
     resultPage.style.visibility = "visible";
     gamePage.style.visibility = "hidden";
-    resultPage.innerHTML = `Tie!`;
+    resultText.innerHTML = `Tie!`;
   };
-
   return {
     updateBoard,
     showWinner,
@@ -111,13 +110,13 @@ const gameFlow = (() => {
   let curPlayer;
 
   const newGame = () => {
-    for(let i = 0; i < 9; i++) {
-      board.board[i] = '';
+    for (let i = 0; i < 9; i++) {
+      board.board[i] = "";
     }
     board.count = 0;
     curPlayer = player1;
     displayController.updateBoard(curPlayer);
-  }
+  };
 
   const createPlayers = (player1Name, player2Name) => {
     player1 = Player(player1Name, "X");
@@ -208,6 +207,6 @@ const gameFlow = (() => {
     resultCheck,
     makeMove,
     newGame,
-    board
+    board,
   };
 })();

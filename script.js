@@ -128,7 +128,10 @@ const gameFlow = (() => {
   const tiles = document.querySelectorAll(".tile");
   tiles.forEach((tile, index) => {
     tile.addEventListener("click", () => {
-      makeMove(curPlayer, index);
+      if(board.board[index] === '') {
+        makeMove(curPlayer, index);
+
+      }
     });
   });
 

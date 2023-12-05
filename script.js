@@ -49,7 +49,6 @@ const displayController = (() => {
         tile.innerHTML = oSvgCode;
       } else {
         tile.innerHTML = nSvgCode;
-
       }
     });
 
@@ -63,12 +62,26 @@ const displayController = (() => {
   };
 
   const showWinner = (winner) => {
-    // Display a message or animation indicating the winner
-    console.log("WINNER");
+    const gamePage = document.querySelector(".game");
+    const resultPage = document.querySelector(".result");
+
+    resultPage.style.visibility = "visible";
+    gamePage.style.visibility = "hidden";
+    resultPage.innerHTML = `${winner.getName()} won!`;
+    if (winner.getMark() === "X") {
+      resultPage.style.borderColor = "red";
+    } else {
+      resultPage.style.borderColor = "blue";
+    }
   };
 
   const showTie = () => {
-    console.log("Tie!!");
+    const gamePage = document.querySelector(".game");
+    const resultPage = document.querySelector(".result");
+
+    resultPage.style.visibility = "visible";
+    gamePage.style.visibility = "hidden";
+    resultPage.innerHTML = `Tie!`;
   };
 
   return {

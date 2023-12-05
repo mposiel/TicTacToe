@@ -21,6 +21,9 @@ const infoManager = (() => {
   const playBtn = document.querySelector(".play");
   const setupPage = document.querySelector(".setup");
   const gamePage = document.querySelector(".game");
+  const playAgainBtn = document.querySelector(".play-again");
+  const resultPage = document.querySelector(".result");
+
   playBtn.addEventListener("click", () => {
     const player1Name = document.querySelector("#username1").value;
     const player2Name = document.querySelector("#username2").value;
@@ -30,6 +33,13 @@ const infoManager = (() => {
     setupPage.style.visibility = "hidden";
     gamePage.style.visibility = "visible";
   });
+
+  playAgainBtn.addEventListener("click", () => {
+    gameFlow.newGame();
+    resultPage.style.visibility = "hidden";
+    gamePage.style.visibility = "visible";
+  });
+
 })();
 
 const displayController = (() => {
@@ -64,14 +74,15 @@ const displayController = (() => {
   const showWinner = (winner) => {
     const gamePage = document.querySelector(".game");
     const resultPage = document.querySelector(".result");
+    const resultText = document.querySelector(".result-text");
 
     resultPage.style.visibility = "visible";
     gamePage.style.visibility = "hidden";
-    resultPage.innerHTML = `${winner.getName()} won!`;
+    resultText.innerHTML = `${winner.getName()} won!`;
     if (winner.getMark() === "X") {
-      resultPage.style.borderColor = "red";
+      resultText.style.borderColor = "red";
     } else {
-      resultPage.style.borderColor = "blue";
+      resultText.style.borderColor = "blue";
     }
   };
 
@@ -98,6 +109,15 @@ const gameFlow = (() => {
   let player2;
 
   let curPlayer;
+
+  const newGame = () => {
+    for(let i = 0; i < 9; i++) {
+      board.board[i] = '';
+    }
+    board.count = 0;
+    curPlayer = player1;
+    displayController.updateBoard(curPlayer);
+  }
 
   const createPlayers = (player1Name, player2Name) => {
     player1 = Player(player1Name, "X");
@@ -187,6 +207,7 @@ const gameFlow = (() => {
     createPlayers,
     resultCheck,
     makeMove,
-    board,
+    newGame,
+    board
   };
 })();
